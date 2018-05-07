@@ -126,7 +126,7 @@ class Shortener(http.server.BaseHTTPRequestHandler):
             self.send_response(400)
             self.send_header('Content-type', 'text/playin; charset=utf-8')
             self.end_headers()
-            self.wfile.write("Ya fucked up, we don't know this name".encode())
+            self.wfile.write("We don't know this name".encode())
 
         longuri = params["longuri"][0]
         shortname = params["shortname"][0]
@@ -147,7 +147,7 @@ class Shortener(http.server.BaseHTTPRequestHandler):
             self.send_response(404)
             self.send_header('Content-type', 'text/plain; charset=utf-8')
             self.end_headers()
-            self.wfile.write("You can't get {} for shit, bud".format(longuri).encode())
+            self.wfile.write("You got {} wrong, bud".format(longuri).encode())
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 8000))   # Use PORT if it's there.
